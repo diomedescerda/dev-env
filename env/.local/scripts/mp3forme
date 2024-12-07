@@ -1,0 +1,4 @@
+for file in *.mkv
+do
+    ffmpeg -i "$file" "${file%.*}.mp3"
+done
