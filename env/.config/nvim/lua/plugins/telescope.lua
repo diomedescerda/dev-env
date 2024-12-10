@@ -12,6 +12,9 @@ return {
         pickers = {
           grep_string = {
             theme = "ivy"
+          },
+          help_tags = {
+            theme = "ivy"
           }
         }
       }
