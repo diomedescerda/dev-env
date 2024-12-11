@@ -8,6 +8,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
       { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
       "saadparwaiz1/cmp_luasnip",
     },
@@ -23,6 +24,7 @@ return {
           { name = "path" },
           { name = "buffer" },
         },
+
         mapping = {
           ["<C-j>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
           ["<C-k>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
@@ -30,6 +32,7 @@ return {
             cmp.mapping.confirm {
               behavior = cmp.SelectBehavior.Insert,
               select = true,
+              select
             },
             { "i", "c" }
           ),
@@ -39,6 +42,10 @@ return {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end
+        },
+
+        window = {
+          documentation = cmp.config.window.bordered(),
         },
 
         formatting = {

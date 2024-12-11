@@ -11,9 +11,47 @@ return {
         },
       },
     },
+      "hrsh7th/cmp-nvim-lsp",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "j-hui/fidget.nvim",
     },
     config = function()
-      require("lspconfig").lua_ls.setup {}
+      local lspconfig = require("lspconfig")
+      local lsp_flags = {
+        allow_incremental_sync = true,
+        debounce_text_changes = 150,
+      }
+      local cmp_lsp = require("cmp_nvim_lsp")
+      local capabilities = vim.tbl_deep_extend(
+        "force",
+        {},
+        vim.lsp.protocol.make_client_capabilities(),
+        cmp_lsp.default_capabilities())
+
+      require("fidget").setup({})
+      require("mason").setup()
+      require("mason-lspconfig").setup({
+        ensured_installed = { "lua_ls", "clangd" },
+        handlers = {
+          function(server_name)
+            lspconfig[server_name].setup {
+              capabilities = capabilities
+            }
+          end,
+          ["cssls"] = function()
+            lspconfig.cssls.setup {
+              capabilities = capabilities,
+              flags = lsp_flags
+            }
+          end,
+          ["html"] = function()
+            lspconfig.html.setup {
+              capabilities = capabilities,
+            }
+          end
+        }
+      })
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)

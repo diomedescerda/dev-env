@@ -16,8 +16,13 @@ return {
           help_tags = {
             theme = "ivy"
           }
+        },
+        extensions = {
+          fzf = {}
         }
       }
+
+      require('telescope').load_extension('fzf')
 
       vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
       vim.keymap.set('n', '<leader>ph', builtin.help_tags, {})
