@@ -34,6 +34,12 @@ return {
       vim.keymap.set('n', '<leader>pg', function()
         builtin.grep_string({ search = vim.fn.input("Grep > ") })
       end)
+      vim.keymap.set('n', '<leader>ep', function()
+        require('telescope.builtin').find_files {
+          cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+        }
+      end)
     end
   }
+
 }

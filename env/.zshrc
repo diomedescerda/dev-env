@@ -111,5 +111,4 @@ source $HOME/.zshenv
 alias vim="nvim"
 alias ls="lsd"
 alias cat="batcat"
-alias schedule="batcat ~/personal/stuff/schedule.txt"
-alias deadline="batcat ~/personal/stuff/deadline.txt"
+alias nantoka="batcat ~/personal/stuff/何とか.txt"

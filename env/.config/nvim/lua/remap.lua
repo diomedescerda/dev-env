@@ -16,6 +16,9 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>yy", [["+Y]])
 
+vim.keymap.set("n", "<leader>k", "<cmd>cnext<CR>")
+vim.keymap.set("n", "<leader>j", "<cmd>cprev<CR>")
+
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
