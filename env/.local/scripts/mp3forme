@@ -2,3 +2,4 @@ for file in *.mkv *.avi
 do
     ffmpeg -i "$file" "${file%.*}.mp3"
 done
+mp3gain *.mp3

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-session=$(find ~ ~/personal ~/work ~/personal/coding ~/personal/AJATT -mindepth 1 -maxdepth 1 -type d | fzf)
+session=$(find ~ ~/personal ~/work ~/personal/coding ~/personal/AJATT ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
 session_name=$(basename "$session" | tr ":,. " "____")
 
 if [[ -z $TMUX ]]; then

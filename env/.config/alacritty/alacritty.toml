@@ -13,8 +13,8 @@ size = 11.0
 
 
 [colors]
-  primary.background = "0x1c1c28"
-  primary.foreground = "0xc8c8fa"
+  primary.background = "0x0f0f14"
+  primary.foreground = "#e6e6ff"
 
   normal.black   = "0x181a29"
   normal.red     = "0xF07178"

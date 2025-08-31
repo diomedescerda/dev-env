@@ -20,6 +20,7 @@ vim.keymap.set("n", "<leader>k", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<leader>j", "<cmd>cprev<CR>")
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set("i", "<C-c>", "<Esc>")
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "<leader>xr", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })

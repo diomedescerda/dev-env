@@ -1,7 +1,7 @@
 export EDITOR="nvim" 
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LANG=ja_JP.UTF-8
+export LANGUAGE=ja_JP.UTF-8
+export LC_ALL=ja_JP.UTF-8
 
 export PATH="/opt/idea-IU-242.23339.11/bin:$PATH"
 

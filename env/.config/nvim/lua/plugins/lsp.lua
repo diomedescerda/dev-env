@@ -27,6 +27,7 @@ return {
         "force",
         {},
         vim.lsp.protocol.make_client_capabilities(),
+
         cmp_lsp.default_capabilities())
 
       require("fidget").setup({})
@@ -48,6 +49,18 @@ return {
           ["html"] = function()
             lspconfig.html.setup {
               capabilities = capabilities,
+            }
+          end,
+          ["pylsp"] = function()
+            lspconfig.pylsp.setup {
+              capabilities = capabilities,
+              settings = {
+                pylsp = {
+                  plugins = {
+                    pycodestyle = { ignore = { 'E501', 'E302' } }
+                  }
+                }
+              }
             }
           end
         }
