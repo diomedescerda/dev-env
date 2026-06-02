@@ -34,4 +34,7 @@ return {
       desc = "Quickfix List (Trouble)",
     },
   },
+  decorators = {
+    treesitter = false, -- Disable the problematic decorator
+  },
 }

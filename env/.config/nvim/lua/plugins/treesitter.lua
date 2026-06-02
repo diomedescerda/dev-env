@@ -1,21 +1,14 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
+  "romus204/tree-sitter-manager.nvim",
+  dependencies = {}, -- tree-sitter CLI must be installed system-wide
   config = function()
-    require 'nvim-treesitter.configs'.setup {
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "markdown", "query", "php" },
-      auto_install = true,
-      highlight = {
-        enable = true,
-        disable = function(lang, buf)
-          local max_filesize = 100 * 1024 -- 100 KB
-          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-          if ok and stats and stats.size > max_filesize then
-            return true
-          end
-        end,
-        additional_vim_regex_highlighting = false,
-      },
-    }
+    require("tree-sitter-manager").setup({
+      -- Default Options
+      -- ensure_installed = {}, -- list of parsers to install at the start of a neovim session. If set to "all", install all parsers.
+      border = rounded,    -- border style for the window (e.g. "rounded", "single"), if nil, use the default border style defined by 'vim.o.winborder'. See :h 'winborder' for more info.
+      auto_install = true, -- if enabled, install missing parsers when editing a new file
+      -- highlight = true, -- treesitter highlighting is enabled by default
+      -- languages = {}, -- override or add new parser sources
+    })
   end
 }
